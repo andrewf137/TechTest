@@ -15,6 +15,8 @@ composer intall
 ## Launch local web server for front-end
 ````
 cd frontend
+nvm use 16.14.0
+npx ng build --base-href=/frontend/dist/
 ng serve --open
 ````
 
@@ -85,4 +87,51 @@ Remove symbolic link:
 ````
 cd backend/public
 rm dist
+````
+
+## Doctrine, database and migrations
+Install doctrine packages
+````
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+````
+
+This will add the following line to the .env file
+````
+DATABASE_URL="mysql://root:password@127.0.0.1:3306/tech_test?serverVersion=8.0.32"
+````
+
+We can now create the database with this command:
+````
+bin/console doctrine:database:create
+````
+
+Create an entity with this command:
+````
+ bin/console make:entity
+````
+
+Create a migration based on the existing entities with:
+````
+bin/console make:migration 
+````
+
+Once all migrations are created, run them with this command:
+````
+bin/console doctrine:migrations:migrate
+````
+
+Create a controller:
+````
+bin/console make:controller UserController
+````
+
+Add serializer to the symfony project:
+````
+composer require symfony/serializer-pack
+````
+
+Debuging routes:
+````
+php bin/console debug:router
 ````
