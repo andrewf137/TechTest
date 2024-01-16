@@ -12,7 +12,6 @@ export class AppComponent {
   constructor(private httpClient: HttpClient) {}
 
   getData() {
-    console.log('aaaaaaaaaa');
     const params = new HttpParams({fromString: 'name=test'});
     this.httpClient.request('GET', 'http://techtest.local/backend/public/api/users', {responseType: 'json', params}).subscribe((result: any) => {
       console.log(result);

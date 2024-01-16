@@ -1,37 +1,8 @@
 # TechTest
 
-## Install vendors for angular:
-````
-cd frontend
-npm install
-````
+## Front-end
 
-## Install vendors for symfony:
-````
-cd backend
-composer intall
-````
-
-## Launch local web server for front-end
-````
-cd frontend
-nvm use 16.14.0
-npx ng build --base-href=/frontend/dist/
-ng serve --open
-````
-
-Build with right base-href 
-````
-ng build --base-href=/frontend/dist/
-````
-
-## Launch local web server for back-end
-````
-cd backend
-symfony server:start
-````
-
-## .conf file to access the project from the browser
+### .conf file to access the project from the browser
 Create techtest.conf file:
 ````
 sudo touch /etc/apache2/sites-available/techtest.conf
@@ -70,14 +41,45 @@ Restart apache:
 sudo service apache2 restart
 ````
 
-Url to back-end:
+### Install vendors for angular:
 ````
-http://techtest.local/backend/public/
+cd frontend
+npm install
 ````
-Url to front-end:
+
+### Launch local web server for front-end
+````
+cd frontend
+nvm use 16.14.0
+npx ng build --base-href=/frontend/dist/
+ng serve --open
+````
+
+### Url to front-end:
 ````
 http://techtest.local/frontend/dist/
 ````
+
+## Back-end
+
+### Install vendors for symfony:
+````
+cd backend
+composer intall
+````
+
+### Launch local web server for back-end
+````
+cd backend
+symfony server:start
+````
+
+### Url to back-end:
+````
+http://techtest.local/backend/public/
+````
+
+### Optional
 
 Create a symbolic link:
 ````
@@ -89,7 +91,8 @@ cd backend/public
 rm dist
 ````
 
-## Doctrine, database and migrations
+### Doctrine, database and migrations
+
 Install doctrine packages
 ````
 composer require symfony/orm-pack
@@ -101,22 +104,22 @@ This will add the following line to the .env file
 DATABASE_URL="mysql://root:password@127.0.0.1:3306/tech_test?serverVersion=8.0.32"
 ````
 
-We can now create the database with this command:
+Create the database:
 ````
 bin/console doctrine:database:create
 ````
 
-Create an entity with this command:
+Create an entity:
 ````
  bin/console make:entity
 ````
 
-Create a migration based on the existing entities with:
+Create a migration based on the existing entities:
 ````
 bin/console make:migration 
 ````
 
-Once all migrations are created, run them with this command:
+Run migrations:
 ````
 bin/console doctrine:migrations:migrate
 ````
