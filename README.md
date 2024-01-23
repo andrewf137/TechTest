@@ -56,56 +56,67 @@
     ````
     sudo a2ensite techtest.conf
     ````
-5. Restart apache:
+5. Add the following line to /etc/hosts file:
+   ````
+   127.0.0.1   techtest.local
+   ````
+6. Restart apache:
     ````
     sudo service apache2 restart
     ````
-6. "cd" to project folder.
-7. Install vendors for angular (**frontend**):
+7. "cd" to project folder.
+8. Install vendors for angular (**frontend**):
     ````
     cd <root-folder>/frontend
     npm install
     ````
-8. Install vendors for symfony (**backend**):
+9. Install vendors for symfony (**backend**):
     ````
     cd <root-folder>/backend
     composer intall
     ````
-9. Generate public and private key for jwt:
+10. Generate public and private key for jwt:
     ````
+    cd <root-folder>/backend
     php bin/console lexik:jwt:generate-keypair
     ````
     This will create `config/jwt/private.pem` and `config/jwt/public.pem` files.
-10. Create a symbolic link from frontend/app to backend/public:
+11. Create a symbolic link from frontend/app to backend/public:
     ````
     cd <root-folder>
     ln -s ../../frontend/app backend/public
     ````
-11. Create the database:
+12. Create the database:
     ````
+    cd <root-folder>/backend
     bin/console doctrine:database:create
     ````
 13. Run migrations:
     ````
+    cd <root-folder>/backend
     bin/console doctrine:migrations:migrate
     ````
-12. Launch local web server for front-end
+14. Launch local web server for front-end
     ````
     cd <root-folder>/frontend
     nvm use 16.14.0
     npx ng build --base-href=/frontend/app/
-    npx ng serve --open
-    ````      
-13. Access the site in `http://localhost:4200`.  
+    npx ng serve
+    ````
+15. Run the following command in a new terminal to open Chrome with security disabled:  
+    ````google-chrome --disable-web-security --allowCfile-access-from-files --user-data-dir="aa"````  
+    This will open a Chrome browser with security disabled. We'll use this browser to navigate through our app.  
+    This step is necessary to prevent blocking by CORS policy.
+16. Access the site in the new Chrome brower via `http://localhost:4200`.  
     Register as many users as you want.  
     Log in using any of the created users.  
     In the list of users shown, the id is a link to the users details.
-14. Comments:
+16. Comments:
     * Answers to Task 1 of the Technical Test are in the pdf document `Answer to technical test Task 1.pdf` (in the root folder).
     * .env file has not been git ignored so no need to do anything on this regard.
     * I was told I had to finish asap, so I didn't have enough time to refine and test the whole app.  
       In other words, improvements can be made. For instance, I didn't have the time to make all work  
-      without using the local web server provided by Angular.
+      without using the local web server provided by Angular. Another example is I didn't implement the building of the app with Docker.
     * I implemented all the advanced features.
     * Addition of new users is done via "Register".
     * Navigation between components is demonstrated when logging in, loging out, registering, viewing user details and viewing users list.
