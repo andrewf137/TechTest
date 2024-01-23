@@ -1,0 +1,26 @@
+.user-details-page {
+  background: #7e29ff;
+  .container {
+    max-width: 600px;
+    box-sizing: border-box;
+    overflow: auto;
+    transition: padding .3s ease;
+    background: #7e29ff;
+    background-size: cover;
+    height: 95vh;
+    padding: 60px;
+
+    .details {
+      color: white;
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+  .title {
+    margin-bottom: 25px;
+    font-size: 24px;
+    line-height: 36px;
+    max-width: 500px;
+    color: #fff;
+  }
+}

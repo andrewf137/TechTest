@@ -1,0 +1,52 @@
+.text-bold{
+  font-weight: 400 !important;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.home-page {
+  .home-container {
+    box-sizing: border-box;
+    overflow: auto;
+    transition: padding .3s ease;
+    background: #7e29ff;
+    background-size: cover;
+    height: 95vh;
+    padding: 60px;
+  }
+  div.error, small.error {
+    float: left;
+    width: 100%;
+    color: #F46141FF !important;
+    padding: 5px 0;
+    margin: 0 0 15px;
+    border-radius: 10px;
+    .mat-icon{
+      color: #F46141FF !important;
+      margin-left: 5px;
+    }
+  }
+}
+
+.mt-45 {
+  margin-top: 45px;
+}
+
+.link {
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.login-error {
+  color: #F46141FF;
+  font-weight: bolder;
+  margin-top: 60px;
+}
+
+.general-error {
+  color: #F46141FF;
+  font-weight: bolder;
+  margin-top: 60px;
+}

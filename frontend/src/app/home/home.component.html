@@ -1,0 +1,14 @@
+<div class="home-page">
+  <app-toolbar></app-toolbar>
+
+  <div class="home-container">
+    <div class="home-panel">
+      <app-users-list></app-users-list>
+    </div>
+  </div>
+
+</div>
+
+<ng-container *ngIf="error">
+  <div class="general-error">{{error}}</div>
+</ng-container>

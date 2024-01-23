@@ -1,0 +1,59 @@
+<div class="login-page">
+
+  <div class="input-container">
+
+    <div class="login-panel">
+      <div class="title">Login</div>
+        <div class="form">
+
+          <div class="login-form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+              <div class="container">
+                <mat-form-field class="select-width">
+                  <input matInput
+                         type="text"
+                         formControlName="username"
+                         placeholder="Username"
+                         required />
+                </mat-form-field>
+                <small class="error" *ngIf="submitted && f['username'].errors">
+                  <div *ngIf="f['username'].errors['required']">Username is required</div>
+                </small>
+
+                <mat-form-field class="select-width">
+                  <input matInput
+                         type="password"
+                         formControlName="password"
+                         placeholder="Password"
+                         required />
+                </mat-form-field>
+                <small class="error" *ngIf="submitted && f['password'].errors">
+                  <div *ngIf="f['password'].errors['required']">Password is required</div>
+                </small>
+              </div>
+
+              <div class="container">
+                <div class="flex-container space-between mt-45">
+                  <button mat-raised-button color="primary" type="submit" id="login">
+                    <mat-icon>lock_open</mat-icon>
+                    Login
+                  </button>
+
+                  <a class="link" id="register-link" routerLink="../register">Register</a>
+                </div>
+              </div>
+
+              <ng-container *ngIf="error">
+                <div class="login-error">{{error}}</div>
+              </ng-container>
+
+            </form>
+          </div>
+
+        </div>
+    </div>
+
+  </div>
+
+</div>

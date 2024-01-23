@@ -1,0 +1,70 @@
+<div class="register-page">
+
+  <div class="input-container">
+
+    <div class="register-panel">
+      <div class="title">Register</div>
+        <div class="form">
+
+          <div class="register-form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+              <div class="container">
+                <mat-form-field class="select-width">
+                  <input matInput
+                         type="text"
+                         formControlName="username"
+                         placeholder="Username"
+                         required />
+                </mat-form-field>
+                <small class="error" *ngIf="submitted && f['username'].errors">
+                  <div *ngIf="f['username'].errors['required']">Username is required</div>
+                </small>
+
+                <mat-form-field class="select-width">
+                  <input matInput
+                         type="text"
+                         formControlName="email"
+                         placeholder="Email"
+                         required />
+                </mat-form-field>
+                <small class="error" *ngIf="submitted && f['email'].errors">
+                  <div *ngIf="f['email'].errors['required']">Email is required</div>
+                </small>
+
+                <mat-form-field class="select-width">
+                  <input matInput
+                         type="password"
+                         formControlName="password"
+                         placeholder="Password"
+                         required />
+                </mat-form-field>
+                <small class="error" *ngIf="submitted && f['password'].errors">
+                  <div *ngIf="f['password'].errors['required']">Password is required</div>
+                </small>
+              </div>
+
+              <div class="container">
+                <div class="flex-container space-between mt-45">
+                  <button mat-raised-button color="primary" type="submit" id="register">
+                    <mat-icon>exit_to_app</mat-icon>
+                    Register
+                  </button>
+
+                  <a class="link" id="register-link" routerLink="../login">Login</a>
+                </div>
+              </div>
+
+              <ng-container *ngIf="error">
+                <div class="register-error">{{error}}</div>
+              </ng-container>
+
+            </form>
+          </div>
+
+        </div>
+    </div>
+
+  </div>
+
+</div>

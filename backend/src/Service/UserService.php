@@ -5,7 +5,6 @@ namespace App\Service;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Serializer\Context\Normalizer\JsonSerializableNormalizerContextBuilder;
-use Symfony\Component\Serializer\Context\Normalizer\ObjectNormalizerContextBuilder;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class UserService
@@ -15,6 +14,7 @@ class UserService
 
     /**
      * @param EntityManagerInterface $entityManager
+     * @param SerializerInterface $serializer
      */
     public function __construct(EntityManagerInterface $entityManager, SerializerInterface $serializer)
     {
